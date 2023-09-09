@@ -1,10 +1,46 @@
-import NavigationSideBar from '@/components/navigations/NavigationSideBar'
-import React from 'react'
+import { currentProfile } from "@/lib/current-profile";
+import { db } from "@/lib/db";
+import { redirectToSignIn } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-export default function ServerIdPage() {
-    return (
-        <div>
-            servide id page
-        </div>
-    )
+interface ServerIdPageProps {
+    params: {
+        serverId: string
+    }
+}
+export default async function ServerIdPage({ params }: ServerIdPageProps) {
+    const profile = await currentProfile();
+    if (!profile) {
+        return redirectToSignIn()
+    }
+    const server = await db.server.findUnique({
+        where: {
+            id: params.serverId,
+            members: {
+                some: {
+                    profileId: profile.id,
+                }
+            }
+        },
+        include: {
+            channels: {
+                where: {
+                    name: {
+                        equals: 'general'
+                    }
+                },
+                orderBy: {
+                    createdAt: 'asc'
+                }
+            }
+        }
+    })
+
+    const initialChannel = server?.channels[0]
+
+    if (initialChannel?.name !== 'general') {
+        return null;
+    }
+
+    return redirect(`/servers/${server?.id}/channels/${initialChannel.id}`)
 }
