@@ -1,4 +1,5 @@
 import ChatHeader from '@/components/chat/ChatHeader';
+import ChatInput from '@/components/chat/ChatInput';
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db';
 import { redirectToSignIn } from '@clerk/nextjs';
@@ -33,9 +34,23 @@ export default async function ChannelIdPage({ params }: ChannelIdPageProps) {
     }
     return (
         <div
-            className='bg-white dark:bg-[#313338] flex flex-col h-full'
+            className='bg-white dark:bg-[#313338] flex flex-col h-full justify-center'
         >
             <ChatHeader name={channel.name} serverId={channel.serverId} type='channel' />
+
+            <div className="flex-1">
+                Future Messages
+            </div>
+
+            <ChatInput
+                apiUrl='/api/socket/messages'
+                type='channel'
+                name={channel.name}
+                query={{
+                    channelId: channel.id,
+                    serverId: channel.serverId,
+                }}
+            />
         </div>
     )
 }

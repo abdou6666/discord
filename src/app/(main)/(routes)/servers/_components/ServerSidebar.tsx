@@ -16,7 +16,7 @@ interface ServerSidebarProps {
     serverId: string
 }
 const iconMap = {
-    [ChannelType.Text]: <Hash className='mr-2 w-4 h-4' />,
+    [ChannelType.TEXT]: <Hash className='mr-2 w-4 h-4' />,
     [ChannelType.AUDIO]: <Mic className='mr-2 w-4 h-4' />,
     [ChannelType.VIDEO]: <Video className='mr-2 w-4 h-4' />
 }
@@ -59,7 +59,7 @@ export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
         return redirect('/')
     }
 
-    const textChannels = server?.channels.filter(channel => channel.type === ChannelType.Text)
+    const textChannels = server?.channels.filter(channel => channel.type === ChannelType.TEXT)
     const videoChannels = server?.channels.filter(channel => channel.type === ChannelType.VIDEO)
     const audioChannels = server?.channels.filter(channel => channel.type === ChannelType.AUDIO)
 
@@ -122,7 +122,7 @@ export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
                     <div className='mb-2'>
                         <ServerSection
                             sectionType="channels"
-                            channelType={ChannelType.Text}
+                            channelType={ChannelType.TEXT}
                             role={role}
                             label="Text Channels"
                         />

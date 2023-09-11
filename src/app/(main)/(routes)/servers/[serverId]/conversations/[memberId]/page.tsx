@@ -1,10 +1,9 @@
 import ChatHeader from '@/components/chat/ChatHeader';
 import { getOrCreateConversation } from '@/lib/conversation';
-import { currentProfile } from '@/lib/current-profile'
+import { currentProfile } from '@/lib/current-profile';
 import { db } from '@/lib/db';
 import { redirectToSignIn } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
-import React from 'react'
 
 interface MemberIdPageProps {
     params: {
@@ -45,6 +44,7 @@ export default async function MemberIdPage({ params }: MemberIdPageProps) {
                 serverId={otherMember.serverId}
                 type='conversation'
             />
+
         </div>
     )
 }

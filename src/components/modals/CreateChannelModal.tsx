@@ -40,7 +40,7 @@ export const CreateChannelModal = () => {
         resolver: zodResolver(formSchema as any),
         defaultValues: {
             name: "",
-            type: channelType || ChannelType.Text,
+            type: channelType || ChannelType.TEXT,
         }
     });
 
@@ -48,7 +48,7 @@ export const CreateChannelModal = () => {
         if (channelType) {
             form.setValue('type', channelType)
         } else {
-            form.setValue('type', ChannelType.Text)
+            form.setValue('type', ChannelType.TEXT)
         }
 
     }, [channelType, form])
