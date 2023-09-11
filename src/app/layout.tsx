@@ -6,6 +6,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import './globals.css'
+import QueryProvider from '@/components/providers/QueryProvider'
 
 const font = Open_Sans({ subsets: ['latin'] })
 
@@ -31,8 +32,10 @@ export default function RootLayout({
             storageKey='discord-theme'
           >
             <SocketProvider>
-              <ModalProvider />
-              {children}
+              <QueryProvider>
+                <ModalProvider />
+                {children}
+              </QueryProvider>
             </SocketProvider>
           </ThemeProvider>
         </body>
