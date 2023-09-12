@@ -1,8 +1,11 @@
 import ChatHeader from '@/components/chat/ChatHeader';
+import ChatInput from '@/components/chat/ChatInput';
+import ChatMessages from '@/components/chat/ChatMessages';
 import { getOrCreateConversation } from '@/lib/conversation';
 import { currentProfile } from '@/lib/current-profile';
 import { db } from '@/lib/db';
 import { redirectToSignIn } from '@clerk/nextjs';
+import { channel } from 'diagnostics_channel';
 import { redirect } from 'next/navigation';
 
 interface MemberIdPageProps {
@@ -44,6 +47,49 @@ export default async function MemberIdPage({ params }: MemberIdPageProps) {
                 serverId={otherMember.serverId}
                 type='conversation'
             />
+            {/* <ChatMessages
+                member={currentMember}
+                name={currentMember.profile.name}
+                apiUrl='/api/direct-messages'
+                chatId={converation.id}
+                type='conversation'
+                paramKey="conversationId"
+                paramValue={converation.id}
+                socketUrl='/api/socket/direct-messages'
+                socketQuery={{
+                    converationId: converation.id,
+                }}
+            />
+            <ChatInput
+                name={otherMember.profile.name}
+                type='conversation'
+                apiUrl='/api/socket/direct-messages'
+                query={{
+                    conversationId: converation.id,
+                }}
+            /> */}
+            <ChatMessages
+                member={currentMember}
+                name={otherMember.profile.name}
+                chatId={converation.id}
+                type="conversation"
+                apiUrl="/api/direct-messages"
+                paramKey="conversationId"
+                paramValue={converation.id}
+                socketUrl="/api/socket/direct-messages"
+                socketQuery={{
+                    conversationId: converation.id,
+                }}
+            />
+            <ChatInput
+                name={otherMember.profile.name}
+                type="conversation"
+                apiUrl="/api/socket/direct-messages"
+                query={{
+                    conversationId: converation.id,
+                }}
+            />
+
 
         </div>
     )
