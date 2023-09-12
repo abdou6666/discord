@@ -1,25 +1,26 @@
 "use client"
 
-import { Member, MemberRole, Profile } from "@prisma/client"
-import UserAvatar from "../UserAvatar"
-import ActionToolTip from "../ActionToolTip"
-import { Edit, FileIcon, ShieldAlert, ShieldCheck, Trash } from "lucide-react"
-import Image from "next/image"
-import { useEffect, useState } from "react"
-import { cn } from "@/lib/utils"
 import {
     Form,
     FormControl,
     FormField,
     FormItem
 } from '@/components/ui/form'
-import * as z from 'zod';
-import axios from 'axios';
-import qs from 'query-string'
-import { useForm } from 'react-hook-form'
+import { useModal } from "@/hooks/useModalStore"
+import { cn } from "@/lib/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Input } from "../ui/input"
+import { Member, MemberRole, Profile } from "@prisma/client"
+import axios from 'axios'
+import { Edit, FileIcon, ShieldAlert, ShieldCheck, Trash } from "lucide-react"
+import Image from "next/image"
+import qs from 'query-string'
+import { useEffect, useState } from "react"
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
+import ActionToolTip from "../ActionToolTip"
+import UserAvatar from "../UserAvatar"
 import { Button } from "../ui/button"
+import { Input } from "../ui/input"
 
 interface ChatItemProps {
     content: string,
@@ -49,7 +50,8 @@ const formSchema = z.object({
 
 export default function ChatItem({ content, currentMember, deleted, fileUrl, id, isUpdated, member, socketQuery, socketUrl, timestamp }: ChatItemProps) {
     const [isEditing, setIsEditing] = useState(false);
-    const [isDeleting, setIsDeleting] = useState(false);
+
+    const { onOpen } = useModal();
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema as any),
@@ -212,7 +214,12 @@ export default function ChatItem({ content, currentMember, deleted, fileUrl, id,
                         </ActionToolTip>
                     )}
                     <ActionToolTip label="Delete">
-                        <Trash className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition" />
+                        <Trash
+                            onClick={() => onOpen('deleteMessage', {
+                                apiUrl: `${socketUrl}/${id}`,
+                                query: socketQuery,
+                            })}
+                            className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition" />
                     </ActionToolTip>
                 </div>
             )}

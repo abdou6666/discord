@@ -1,7 +1,12 @@
 "use client"
 
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem
+} from '@/components/ui/form'
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from 'zod'
 interface ChatInputProps {
@@ -10,20 +15,14 @@ interface ChatInputProps {
     name: string,
     type: 'conversation' | 'channel'
 }
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem
-} from '@/components/ui/form'
 
-import { Input } from "../ui/input"
-import { Plus, Smile } from "lucide-react"
-import qs from 'query-string'
-import axios from "axios"
 import { useModal } from "@/hooks/useModalStore"
-import EmojiPicker from "../EmojiPicker"
+import axios from "axios"
+import { Plus } from "lucide-react"
 import { useRouter } from "next/navigation"
+import qs from 'query-string'
+import EmojiPicker from "../EmojiPicker"
+import { Input } from "../ui/input"
 
 const formSchema = z.object({
     content: z.string().min(1),

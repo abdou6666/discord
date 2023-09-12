@@ -1,15 +1,16 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { CreateServerModal } from "../modals/CreateServerModal"
-import { InviteModal } from "../modals/InviteModal"
-import { EditServerModal } from "../modals/EditServerModal"
-import { MembersModal } from "../modals/MembersModal"
 import { CreateChannelModal } from "../modals/CreateChannelModal"
-import { LeaveServerModal } from "../modals/LeaveServerModal"
-import { DeleteServerModal } from "../modals/DeleteServerModal"
+import { CreateServerModal } from "../modals/CreateServerModal"
 import { DeleteChannelModal } from "../modals/DeleteChannelModal"
+import { DeleteMessageModal } from "../modals/DeleteMessageModal"
+import { DeleteServerModal } from "../modals/DeleteServerModal"
 import { EditChannelModal } from "../modals/EditChannelModal"
+import { EditServerModal } from "../modals/EditServerModal"
+import { InviteModal } from "../modals/InviteModal"
+import { LeaveServerModal } from "../modals/LeaveServerModal"
+import { MembersModal } from "../modals/MembersModal"
 import { MessageFileModal } from "../modals/MessageFileModal"
 
 export const ModalProvider = () => {
@@ -34,6 +35,7 @@ export const ModalProvider = () => {
             <DeleteChannelModal />
             <EditChannelModal />
             <MessageFileModal />
+            <DeleteMessageModal />
         </>
     )
 }

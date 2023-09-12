@@ -1,12 +1,12 @@
 "use client"
 
-import { Member, MemberRole, Message, Profile } from "@prisma/client"
-import ChatWelcome from "./ChatWelcome"
-import { useChatQuery } from "@/hooks/useChatQuery"
+import { useChatQuery } from "@/hooks/useChatQuery";
+import { Member, Message, Profile } from "@prisma/client";
+import { format } from 'date-fns';
 import { Loader2, ServerCrash } from "lucide-react";
 import { Fragment } from "react";
 import ChatItem from "./ChatItem";
-import { format } from 'date-fns';
+import ChatWelcome from "./ChatWelcome";
 interface ChatMessagesProps {
     name: string,
     member: Member,
