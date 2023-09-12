@@ -7,6 +7,7 @@ import { Loader2, ServerCrash } from "lucide-react";
 import { Fragment } from "react";
 import ChatItem from "./ChatItem";
 import ChatWelcome from "./ChatWelcome";
+import useChatSocket from "@/hooks/useChatSocket";
 interface ChatMessagesProps {
     name: string,
     member: Member,
@@ -28,8 +29,13 @@ const DATE_FORMAT = "d MMM yyyy, HH:mm";
 
 export default function ChatMessages({ apiUrl, chatId, member, name, paramKey, paramValue, socketQuery, socketUrl, type }: ChatMessagesProps) {
     const queryKey = `chat:${chatId}`;
+    const addKey = `chat:${chatId}:messages`;
+    const updateKey = `chat:${chatId}:messages:update`;
 
     const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } = useChatQuery({ apiUrl, queryKey, paramKey, paramValue });
+
+    useChatSocket({ queryKey, addKey, updateKey })
+
     if (status === "loading") {
         <div className="flex flex-col flex-1 justify-center items-center">
             <Loader2 className="h-7 w-7 text-zinc-500 animate-spin my-4" />
