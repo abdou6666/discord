@@ -1,6 +1,8 @@
 import { auth } from '@clerk/nextjs'
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 
+export const dynamic = 'force-dynamic'
+
 const f = createUploadthing();
 
 const handleAuth = async () => {

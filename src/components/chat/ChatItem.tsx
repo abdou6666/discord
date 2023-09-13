@@ -78,7 +78,7 @@ export default function ChatItem({ content, currentMember, deleted, fileUrl, id,
         form.reset({
             content
         })
-    }, [content])
+    }, [content, form])
 
     useEffect(() => {
         const handleKeyDown = (event: any) => {
