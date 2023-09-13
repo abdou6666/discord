@@ -5,8 +5,8 @@ import { Member, Message, Profile } from "@prisma/client";
 import { format } from 'date-fns';
 import { Loader2, ServerCrash } from "lucide-react";
 import { ElementRef, Fragment, useRef } from "react";
-import ChatItem from "./ChatItem";
-import ChatWelcome from "./ChatWelcome";
+import ChatItem from "@/components/chat/ChatItem";
+import ChatWelcome from "@/components/chat/ChatWelcome";
 import useChatSocket from "@/hooks/useChatSocket";
 import useChatScroll from "@/hooks/useChatScroll";
 interface ChatMessagesProps {

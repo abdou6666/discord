@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useParams, useRouter } from "next/navigation";
-import ActionToolTip from "../ActionToolTip";
+import ActionToolTip from "@/components/ActionToolTip";
 import Image from "next/image";
 
 interface NavigationItemProps {

@@ -1,8 +1,8 @@
 import { Hash } from "lucide-react"
-import MobileToggle from "../MobileToggle"
-import SocketIndicator from "../SocketIndicator"
-import UserAvatar from "../UserAvatar"
-import ChatVideoButton from "../ChatVideoButton"
+import MobileToggle from "@/components/MobileToggle"
+import SocketIndicator from "@/components/SocketIndicator"
+import UserAvatar from "@/components/UserAvatar"
+import ChatVideoButton from "@/components/ChatVideoButton"
 
 interface ChatHeaderProps {
     serverId: string,

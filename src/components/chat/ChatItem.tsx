@@ -17,10 +17,10 @@ import qs from 'query-string'
 import { useEffect, useState } from "react"
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import ActionToolTip from "../ActionToolTip"
-import UserAvatar from "../UserAvatar"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
+import ActionToolTip from "@/components/ActionToolTip"
+import UserAvatar from "@/components/UserAvatar"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { useParams, useRouter } from 'next/navigation'
 
 interface ChatItemProps {

@@ -2,11 +2,11 @@ import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db';
 import { redirect } from 'next/navigation';
 import React from 'react'
-import NavigationAction from './NavigationAction';
-import { Separator } from '../ui/separator';
-import { ScrollArea } from '../ui/scroll-area';
+import NavigationAction from '@/components/navigations/NavigationAction';
+import { Separator } from '@/components/ui/separator';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import NavigationItem from './NavigationItem';
-import { ModeToggle } from '../ModeToggle';
+import { ModeToggle } from '@/components/ModeToggle';
 import { UserButton } from '@clerk/nextjs';
 
 export default async function NavigationSideBar() {

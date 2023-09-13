@@ -1,6 +1,8 @@
 "use client"
+import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Input } from "@/components/ui/input";
 import {
     Select,
     SelectContent,
@@ -17,8 +19,6 @@ import qs from 'query-string';
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import z from 'zod';
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
 
 const formSchema = z.object({
     name: z.string().min(1, {

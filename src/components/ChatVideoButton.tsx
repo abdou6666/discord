@@ -2,7 +2,7 @@
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import qs from 'query-string';
-import ActionToolTip from './ActionToolTip';
+import ActionToolTip from '@/components/ActionToolTip';
 import { Video, VideoOff } from 'lucide-react';
 
 export default function ChatVideoButton() {

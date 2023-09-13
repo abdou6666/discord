@@ -4,8 +4,8 @@ import { useModal } from "@/hooks/useModalStore";
 import { ServerWithMembersWithProfiles } from "@/types";
 import { Check, Gavel, Loader, MoreVertical, Shield, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
 import { useState } from "react";
-import UserAvatar from "../UserAvatar";
-import { ScrollArea } from "../ui/scroll-area";
+import UserAvatar from "@/components/UserAvatar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
     DropdownMenu,
     DropdownMenuContent,

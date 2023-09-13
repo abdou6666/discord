@@ -1,6 +1,6 @@
 "use client"
-import { useSocket } from "./providers/SocketProvider"
-import { Badge } from "./ui/badge"
+import { useSocket } from "@/components/providers/SocketProvider"
+import { Badge } from "@/components/ui/badge"
 
 
 export default function SocketIndicator() {

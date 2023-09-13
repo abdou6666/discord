@@ -7,8 +7,8 @@ import axios from 'axios';
 import { useParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import z from 'zod';
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import qs from 'query-string'
 import {
     Select,

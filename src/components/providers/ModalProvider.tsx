@@ -1,17 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { CreateChannelModal } from "../modals/CreateChannelModal"
-import { CreateServerModal } from "../modals/CreateServerModal"
-import { DeleteChannelModal } from "../modals/DeleteChannelModal"
-import { DeleteMessageModal } from "../modals/DeleteMessageModal"
-import { DeleteServerModal } from "../modals/DeleteServerModal"
-import { EditChannelModal } from "../modals/EditChannelModal"
-import { EditServerModal } from "../modals/EditServerModal"
-import { InviteModal } from "../modals/InviteModal"
-import { LeaveServerModal } from "../modals/LeaveServerModal"
-import { MembersModal } from "../modals/MembersModal"
-import { MessageFileModal } from "../modals/MessageFileModal"
+import { CreateChannelModal } from "@/components/modals/CreateChannelModal"
+import { CreateServerModal } from "@/components/modals/CreateServerModal"
+import { DeleteChannelModal } from "@/components/modals/DeleteChannelModal"
+import { DeleteMessageModal } from "@/components/modals/DeleteMessageModal"
+import { DeleteServerModal } from "@/components/modals/DeleteServerModal"
+import { EditChannelModal } from "@/components/modals/EditChannelModal"
+import { EditServerModal } from "@/components/modals/EditServerModal"
+import { InviteModal } from "@/components/modals/InviteModal"
+import { LeaveServerModal } from "@/components/modals/LeaveServerModal"
+import { MembersModal } from "@/components/modals/MembersModal"
+import { MessageFileModal } from "@/components/modals/MessageFileModal"
 
 export const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false)
