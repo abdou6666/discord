@@ -5,7 +5,7 @@ import { DialogDescription } from "@radix-ui/react-dialog";
 import axios from "axios";
 import qs from 'query-string';
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 
 
 export const DeleteMessageModal = () => {

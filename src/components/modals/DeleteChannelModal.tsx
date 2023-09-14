@@ -6,7 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import qs from 'query-string';
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 
 
 export const DeleteChannelModal = () => {

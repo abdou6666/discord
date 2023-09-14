@@ -1,6 +1,6 @@
 "use client"
 import FileUpload from "@/components/FileUpload";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from "@/components/ui/input";

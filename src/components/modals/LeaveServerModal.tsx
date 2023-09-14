@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "
 import { useModal } from "@/hooks/useModalStore";
 import { DialogDescription } from "@radix-ui/react-dialog";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
