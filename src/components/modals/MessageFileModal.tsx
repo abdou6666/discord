@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import z from 'zod';
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import qs from 'query-string';
 
 const formSchema = z.object({
